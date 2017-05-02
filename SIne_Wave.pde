@@ -10,7 +10,7 @@ void draw () {
   translate(width / 2, height / 2);
   background(0);
   noFill();
-  period = int(map(mouseX, 0, width, 0, 10));
+  period = int(map(mouseX, 0, width, 0, 6));
   waveHeight = map(mouseY, 0, height, 10, 50);
   for ( int i = 0; i < loop; i++) {
     int polySize = (int) map (i, 0, loop, 0, 350);
