@@ -37,31 +37,20 @@ void keyPressed() {
 }
 
 void poly (int loop, float rot, int r, float z, float offset, boolean isPoint, float col) {
-  //noStroke();
   stroke(col, 0, 255);
+  pushMatrix();
+  rotateX(rot);
   if (!isPoint) {
-    pushMatrix();
-    rotateX(rot);
     beginShape();
-    for ( int i = 0; i < loop; i ++) {
-      float angle = map (i, 0, loop, 0 + offset, TWO_PI + offset);
-      float x = cos(angle) * r;
-      float y = sin(angle) * r;
-      vertex(x, y, z);
-    }
-    endShape(CLOSE);
-    popMatrix();
   } else {
-    pushMatrix();
-    rotateX(rot);
     beginShape(POINTS);
-    for ( int i = 0; i < loop; i ++) {
-      float angle = map (i, 0, loop, 0 + offset, TWO_PI + offset);
-      float x = cos(angle) * r;
-      float y = sin(angle) * r;
-      vertex(x, y, z);
-    }
-    endShape();
-    popMatrix();
   }
+  for ( int i = 0; i < loop; i ++) {
+    float angle = map (i, 0, loop, 0 + offset, TWO_PI + offset);
+    float x = cos(angle) * r;
+    float y = sin(angle) * r;
+    vertex(x, y, z);
+  }
+  endShape(CLOSE);
+  popMatrix();
 }
