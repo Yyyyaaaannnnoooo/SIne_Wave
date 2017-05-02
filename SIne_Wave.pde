@@ -17,9 +17,9 @@ void draw () {
     float waveFreq = map(i, 0, loop, 0, TWO_PI * period);
     float polyOffset = map(i, 0, loop, 0, PI / 2);
     float polyCol = sin(waveFreq + sinCount) * 255;
-    poly(vertices, radians(60), polySize,
-         sin(waveFreq + sinCount) * waveHeight,
-         polyOffset, withPoints, polyCol);
+    poly(vertices, radians(60), polySize, 
+      sin(waveFreq + sinCount) * waveHeight, 
+      polyOffset, withPoints, polyCol);
   }
   sinCount += .05;
 }
@@ -31,8 +31,8 @@ void keyPressed() {
   if (key == 's') {
     constrain(vertices--, 3, 1000);
   }
-  if (key == ' '){
-  withPoints = !withPoints;
+  if (key == ' ') {
+    withPoints = !withPoints;
   }
 }
 
