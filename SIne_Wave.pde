@@ -1,6 +1,6 @@
-int vertices = 10, loop = 50, period = 1;
+int vertices = 10, loop = 50, period = 1, count = 0;
 float sinCount = 0, waveHeight = 10;
-boolean withPoints = false;
+boolean withPoints = false, saving = false;
 void setup() {
   size(700, 700, P3D);
 }
@@ -22,6 +22,8 @@ void draw () {
       polyOffset, withPoints, polyCol);
   }
   sinCount += .05;
+  if(saving)saveFrame(count+"output.png");
+  count++;
 }
 
 void keyPressed() {
@@ -34,6 +36,7 @@ void keyPressed() {
   if (key == ' ') {
     withPoints = !withPoints;
   }
+  if(key == 'd') saving = true;
 }
 
 void poly (int loop, float rot, int r, float z, float offset, boolean isPoint, float col) {
